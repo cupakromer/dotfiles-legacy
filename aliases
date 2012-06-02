@@ -1,0 +1,25 @@
+# Common Command Aliases
+
+# Listing Files
+alias ls="ls -aFG"
+alias ll="ls -lh"
+alias lv="ls -F"
+alias cls="clear && ls"
+alias lmod="ls -t | head -1" # Last modified file
+
+# File Operations
+alias mv="mv -i"
+alias vil="vim `lmod`"       # VIM last modified file
+
+# Mercurial Version Control Shortcuts
+alias hgc="hg comm -Am"
+
+# Git Version Control Shortcuts
+alias gst="git status -sb"
+alias gpm="git push origin master"
+alias gco="git checkout"
+alias gl="git log --oneline --decorate"
+alias gdiff="git diff --word-diff"
+
+# Bundler Shortcuts
+alias be="bundle exec $1"
