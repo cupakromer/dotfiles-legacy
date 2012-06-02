@@ -42,3 +42,21 @@ set smartcase
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
+
+" Add Column Limit highlight
+set colorcolumn=80
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+"""""""""""""""
+" Key Mapings "
+"""""""""""""""
+inoremap <C-i> <Esc>
+nnoremap ,b :ls<CR>:buffer<Space>
+
+"""""""""""""""""""
+" Command Aliases "
+"""""""""""""""""""
+ca W w
+ca WQ wq
+ca Wq wq
