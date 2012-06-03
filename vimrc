@@ -44,7 +44,11 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 " Add Column Limit highlight
-set colorcolumn=80
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  match ErrorMsg '\%>80v.\+'
+endif
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
