@@ -12,14 +12,17 @@ alias mv="mv -i"
 alias vil="vim `lmod`"       # VIM last modified file
 
 # Screen
-# TODO
+alias screen="screen -d -RR"
 
 # Mercurial Version Control Shortcuts
 alias hgc="hg comm -Am"
 
 # Git Version Control Shortcuts
 alias gst="git status -sb"
+alias gpo="git push origin"
 alias gpm="git push origin master"
+alias gfu="git fetch upstream"
+alias gmum="git merge upstream/master"
 alias gco="git checkout"
 alias gl="git log --oneline --decorate"
 alias gld="git log -p"
@@ -28,6 +31,7 @@ alias glg="git log --pretty=format:\"%h %s\" --graph --decorate"
 alias gdiff="git diff --word-diff"
 alias ga="git add"
 alias gcm="git commit -m"
+alias gr="git remote -v"
 
 # Bundler Shortcuts
 alias be="bundle exec $1"
