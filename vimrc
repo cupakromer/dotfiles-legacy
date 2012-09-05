@@ -55,7 +55,7 @@ match OverLength /\%81v.\+/
 """""""""""""""
 " Key Mapings "
 """""""""""""""
-inoremap <C-i> <Esc>
+"inoremap <C-i> <Esc>
 nnoremap ,b :ls<CR>:buffer<Space>
 
 """""""""""""""""""
