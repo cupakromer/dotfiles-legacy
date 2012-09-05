@@ -15,9 +15,9 @@ set number
 set encoding=utf-8
 
 " Better command-line completion
-set wildmenu
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+" set wildmenu
+" set wildmode=list:longest,list:full
+" set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 " Show partial commands in the last line of the screen
 set showcmd
@@ -55,7 +55,7 @@ match OverLength /\%81v.\+/
 """""""""""""""
 " Key Mapings "
 """""""""""""""
-"inoremap <C-i> <Esc>
+set timeoutlen=250
 nnoremap ,b :ls<CR>:buffer<Space>
 
 """""""""""""""""""
