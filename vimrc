@@ -1,9 +1,12 @@
+" Setup Plugins
+call pathogen#infect()
+
 " Global settings for all files
 set nocompatible
 
 " Attempt to determine the type of a file based on its name and possibly its
-" " contents.  Use this to allow intelligent auto-indenting for each filetype,
-" " and for plugins that are filetype specific.
+" contents.  Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
 filetype indent plugin on
 
 syntax on
@@ -32,6 +35,12 @@ set smarttab
 set autoindent
 set wrap
 set list listchars=tab:\ \ ,trail:·
+
+" Code Folding
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
 
 " Searching
 set hlsearch
