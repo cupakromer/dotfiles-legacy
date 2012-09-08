@@ -64,7 +64,7 @@ match OverLength /\%81v.\+/
 """""""""""""""
 " Key Mapings "
 """""""""""""""
-set timeoutlen=250
+set timeoutlen=500
 nnoremap ,b :ls<CR>:buffer<Space>
 
 """""""""""""""""""
