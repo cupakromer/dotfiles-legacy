@@ -1,0 +1,22 @@
+[user]
+  name = 
+  email = 
+
+[core]
+  editor = /usr/bin/vim
+
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  unstage = reset HEAD --
+  last = log -1 HEAD
+
+[color]
+  status = auto
+
+[color "status"]
+  added = green
+  changed = red
+  untracked = yellow
