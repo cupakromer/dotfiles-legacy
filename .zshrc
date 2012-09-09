@@ -35,5 +35,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/Users/aaron/.rvm/gems/ruby-1.9.3-p194/bin:/Users/aaron/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/aaron/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/aaron/.rvm/bin:/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin
+#export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+[[ -s "$HOME/dotfiles/aliases" ]] && source "$HOME/dotfiles/aliases"
 
 bindkey -v
