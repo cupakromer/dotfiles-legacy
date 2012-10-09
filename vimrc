@@ -11,6 +11,7 @@ filetype indent plugin on
 
 syntax on
 
+set spell
 set ruler
 set number
 
@@ -73,3 +74,4 @@ nnoremap ,b :ls<CR>:buffer<Space>
 ca W w
 ca WQ wq
 ca Wq wq
+ca Q q
