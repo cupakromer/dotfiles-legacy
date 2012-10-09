@@ -29,13 +29,14 @@ alias zshconfig="vim ~/.zshrc"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git encode64 npm rvm)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/Users/aaron/.rvm/gems/ruby-1.9.3-p194/bin:/Users/aaron/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/aaron/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/aaron/.rvm/bin:/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin
 #export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export NODE_PATH=/usr/local/lib/node_modules
 
 [[ -s "$HOME/dotfiles/aliases" ]] && source "$HOME/dotfiles/aliases"
 
