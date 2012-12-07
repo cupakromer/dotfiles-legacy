@@ -36,3 +36,5 @@ alias gr="git remote -v"
 
 # Bundler Shortcuts
 alias be="bundle exec $1"
+
+alias vim='mvim -v'
