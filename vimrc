@@ -14,6 +14,7 @@ syntax on
 set spell
 set ruler
 set number
+set clipboard=unnamed
 
 " Set encoding
 set encoding=utf-8
@@ -28,6 +29,11 @@ set showcmd
 
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
+
+" Set color scheme
+"let base16colorspace=256
+set background=dark
+colorscheme base16-tomorrow
 
 " Whitespace config
 set shiftwidth=2 softtabstop=2 tabstop=2
@@ -75,3 +81,19 @@ ca W w
 ca WQ wq
 ca Wq wq
 ca Q q
+
+""""""""""""""""""""
+" Custom Functions "
+""""""""""""""""""""
+function! <SID>StripTrailingWhitespaces()
+  " Prep: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Remove whitespace
+  %s/\s\+$//e
+  " Restore search and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
