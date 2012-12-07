@@ -1,0 +1,8 @@
+bundler
+rubygems-bundler
+rake
+rvm
+pry
+autotest
+ZenTest
+awesome_print
