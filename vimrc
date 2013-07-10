@@ -1,3 +1,30 @@
+" Bundles {{{
+" Pathogen is required for any of these plugins to work
+"=bundle ervandew/ag
+"=bundle ervandew/supertab
+"=bundle godlygeek/tabular
+"=bundle kchmck/vim-coffee-script
+"=bundle mattn/gist-vim
+"=bundle pangloss/vim-javascript
+"=bundle slim-template/vim-slim
+"=bundle tpope/vim-bundler
+"=bundle tpope/vim-cucumber
+"=bundle tpope/vim-endwise
+"=bundle tpope/vim-fugitive
+"=bundle tpope/vim-pathogen
+"=bundle tpope/vim-rails
+"=bundle tpope/vim-rake
+"=bundle tpope/vim-repeat
+"=bundle tpope/vim-surround
+"=bundle vim-ruby/vim-ruby
+"=bundle rizzatti/funcoo.vim
+"=bundle thoughtbot/vim-rspec
+"=bundle ecomba/vim-ruby-refactoring
+"=bundle kien/ctrlp.vim
+"=bundle rizzatti/dash.vim
+"=bundle airblade/vim-gitgutter
+
+
 " Setup Plugins
 call pathogen#infect()
 
