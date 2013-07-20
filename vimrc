@@ -26,7 +26,7 @@
 
 
 " Setup Plugins
-call pathogen#infect()
+execute pathogen#infect()
 
 " Global settings for all files
 set nocompatible
@@ -68,7 +68,7 @@ set expandtab
 set smarttab
 set autoindent
 set wrap
-set list listchars=tab:\ \ ,trail:·
+set list listchars=tab:»\ ,trail:•,extends:→,precedes:←,nbsp:‗
 
 " Code Folding
 set foldmethod=syntax
@@ -107,7 +107,11 @@ nnoremap ,b :ls<CR>:buffer<Space>
 ca W w
 ca WQ wq
 ca Wq wq
+ca X x      # I never use the encryption command
 ca Q q
+ca Qa qa
+ca QA qa
+ca GW Gw
 
 """"""""""""""""""""
 " Custom Functions "
