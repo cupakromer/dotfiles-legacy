@@ -105,6 +105,13 @@ match OverLength /\%81v.\+/
 set timeoutlen=500
 nnoremap ,b :ls<CR>:buffer<Space>
 
+nnoremap Q gqap
+vnoremap Q gq
+
+" j and k move by screen lines
+nnoremap j gj
+nnoremap k gk
+
 """""""""""""""""""
 " Command Aliases "
 """""""""""""""""""
