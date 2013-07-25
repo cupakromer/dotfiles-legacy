@@ -113,6 +113,12 @@ nnoremap j gj
 nnoremap k gk
 
 """""""""""""""""""
+" Custom Mappings "
+"""""""""""""""""""
+" Clear highlight
+nnoremap <leader><space> <Esc>:noh<CR>
+
+"""""""""""""""""""
 " Command Aliases "
 """""""""""""""""""
 ca W w
