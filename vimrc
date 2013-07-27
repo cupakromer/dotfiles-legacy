@@ -24,7 +24,6 @@
 "=bundle rizzatti/dash.vim
 "=bundle airblade/vim-gitgutter
 
-
 " Setup Plugins
 execute pathogen#infect()
 
@@ -111,6 +110,13 @@ vnoremap Q gq
 " j and k move by screen lines
 nnoremap j gj
 nnoremap k gk
+
+""""""""""""""""""""""
+" Rspec.vim mappings "
+""""""""""""""""""""""
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
 
 """""""""""""""""""
 " Custom Mappings "
