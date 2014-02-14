@@ -1,6 +1,11 @@
 # Basic Developer Setup
+install apple-gcc42
+install c-ares
+install ec2-api-tools
 install elixir
+install erlang
 install git
+install libyaml
 install macvim
 install mongodb
 install node
@@ -8,6 +13,7 @@ install openssl
 install postgresql
 install pow
 install readline
+install reattach-to-user-namespace
 install redis
 install sqlite
 install the_silver_searcher
