@@ -1,6 +1,7 @@
 # Basic Developer Setup
 install apple-gcc42
 install c-ares
+install ctags
 install ec2-api-tools
 install elixir
 install erlang
@@ -19,3 +20,4 @@ install sqlite
 install the_silver_searcher
 install tmux
 install zsh
+brew todo-txt

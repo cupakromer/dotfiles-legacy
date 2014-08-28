@@ -9,9 +9,12 @@
 "=bundle slim-template/vim-slim
 "=bundle tpope/vim-bundler
 "=bundle tpope/vim-cucumber
+"=bundle tpope/vim-dispatch
 "=bundle tpope/vim-endwise
 "=bundle tpope/vim-fugitive
+"=bundle tpope/vim-markdown
 "=bundle tpope/vim-pathogen
+"=bundle tpope/vim-projectionist
 "=bundle tpope/vim-rails
 "=bundle tpope/vim-rake
 "=bundle tpope/vim-repeat
@@ -22,10 +25,23 @@
 "=bundle ecomba/vim-ruby-refactoring
 "=bundle kien/ctrlp.vim
 "=bundle rizzatti/dash.vim
+"=bundle wikitopian/hardmode
+"=bundle hwartig/vim-seeing-is-believing
+"=bundle jgdavey/tslime.vim
+"=bundle jgdavey/vim-blockle
+"=bundle AndrewRadev/switch.vim
+"=bundle therubymug/vim-pyte
+"=bundle scrooloose/syntastic
 "=bundle airblade/vim-gitgutter
+"=bundle emilsoman/spec-outline.vim
+"=bundle rizzatti/dash.vim
 
 " Setup Plugins
-execute pathogen#infect()
+call pathogen#infect()
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+" Configure syntastic
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " Global settings for all files
 set nocompatible
@@ -37,8 +53,8 @@ filetype indent plugin on
 
 syntax on
 
-set spell
-set ruler
+"set spell
+"set ruler
 set number
 set clipboard=unnamed
 
@@ -46,9 +62,10 @@ set clipboard=unnamed
 set encoding=utf-8
 
 " Better command-line completion
-" set wildmenu
-" set wildmode=list:longest,list:full
-" set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+set complete=.,b,u,]
+set wildmenu
+set wildmode=longest,list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 " Show partial commands in the last line of the screen
 set showcmd
@@ -60,6 +77,7 @@ set backspace=indent,eol,start
 "let base16colorspace=256
 set background=dark
 colorscheme base16-tomorrow
+"colorscheme spacemanspiff
 
 " Whitespace config
 set shiftwidth=2 softtabstop=2 tabstop=2
@@ -112,17 +130,47 @@ nnoremap j gj
 nnoremap k gk
 
 """"""""""""""""""""""
+" RSpec Dispatch     "
+""""""""""""""""""""""
+"let g:rspec_command = 'Dispatch rspec {spec}'
+
+""""""""""""""""""""""
+" RSpec TSlime       "
+""""""""""""""""""""""
+"let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+
+""""""""""""""""""""""
 " Rspec.vim mappings "
 """"""""""""""""""""""
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+""""""""""""""""""""""""""
+" Cucumber Test mappings "
+""""""""""""""""""""""""""
+"map <Leader>c :call Send_to_Tmux("cucumber --format progress\n")<CR>
+"map <Leader>w :call Send_to_Tmux("cucumber --format progress -p wip\n")<CR>
+"map <Leader>c :Dispatch cucumber --format progress<CR>
+"map <Leader>w :Dispatch cucumber --format progress -p wip<CR>
+
+"""""""""""""""""""
+" Switch mappings "
+"""""""""""""""""""
+nnoremap - :Switch<cr>
 
 """""""""""""""""""
 " Custom Mappings "
 """""""""""""""""""
 " Clear highlight
 nnoremap <leader><space> <Esc>:noh<CR>
+
+" Toggle Hard Mode
+"nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 """""""""""""""""""
 " Command Aliases "
@@ -151,3 +199,58 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+autocmd BufNewFile,BufRead *.thor set filetype=ruby
+
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
+" Integrate with TMUX to allow for vim navigation
+" if exists('$TMUX')
+"   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+"     let previous_winnr = winnr()
+"     execute "wincmd " . a:wincmd
+"     if previous_winnr == winnr()
+"       " The sleep and & gives time to get back to vim so tmux's focus tracking
+"       " can kick in and send us our ^[[O
+"       execute "silent !sh -c 'sleep 0.01; tmux select-pane -" . a:tmuxdir . "' &"
+"       redraw!
+"     endif
+"   endfunction
+"   let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+"   let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+"   let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+"   nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+"   nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+"   nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+"   nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+" else
+"   map <C-h> <C-w>h
+"   map <C-j> <C-w>j
+"   map <C-k> <C-w>k
+"   map <C-l> <C-w>l
+" endif
+
+" :RL <regexp> will now remove all matched lines in a file
+" Thanks go to http://trevmex.com/post/62725003513/my-first-viml-command-rl
+function! RemoveLine(regexp)
+    exe '%s,^.*' . a:regexp . '.*$\n,,g'
+endfunction
+command! -nargs=1 RL call RemoveLine(<f-args>)
+
+
+" Seeing is believing Plugin for Ruby Execution
+nmap <buffer> <M-r> <Plug>(seeing-is-believing-run)
+xmap <buffer> <M-r> <Plug>(seeing-is-believing-run)
+imap <buffer> <M-r> <Plug>(seeing-is-believing-run)
+
+nmap <buffer> <M-m> <Plug>(seeing-is-believing-mark)
+xmap <buffer> <M-m> <Plug>(seeing-is-believing-mark)
+imap <buffer> <M-m> <Plug>(seeing-is-believing-mark)
+
+nmap <buffer> <F5> <Plug>(seeing-is-believing-run)
+xmap <buffer> <F5> <Plug>(seeing-is-believing-run)
+imap <buffer> <F5> <Plug>(seeing-is-believing-run)
+
+nmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+xmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+imap <buffer> <F4> <Plug>(seeing-is-believing-mark)

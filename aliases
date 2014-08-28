@@ -1,5 +1,5 @@
 # Common Command Aliases
-alias update-system="brew update && brew upgrade && ~/bin/infect && rvm-update"
+alias update-system="brew update && brew upgrade && ~/bin/infect && rvm get stable"
 
 # Listing Files
 alias ls="ls -aFG"
@@ -21,6 +21,7 @@ alias hgc="hg comm -Am"
 # Git Version Control Shortcuts
 alias gst="git status -sb"
 alias gd="git diff"
+alias gdc="git diff --cached"
 alias gp="git push"
 alias gpo="git push origin"
 alias gpm="git push origin master"
@@ -36,8 +37,20 @@ alias gdiff="git diff --word-diff"
 alias ga="git add"
 alias gcm="git commit -m"
 alias gr="git remote -v"
+alias gcurtain-peek="gnuke && clear && gco"
 
 # Bundler Shortcuts
 alias be="bundle exec $1"
 
 alias vim='mvim -v'
+
+# Test Shortcuts
+alias cwip="cucumber -p wip"
+alias rwip="rspec --tag wip"
+
+# Rails Shortcuts
+alias br="bin/rails"
+alias rkma="rake db:migrate && rake db:migrate RAILS_ENV=test"
+
+# ToDo App
+alias td="todo.sh -d $HOME/.todo/todo.cfg"
