@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+curl -H "Content-type: application/json" -H "Accept: application/json" -H 'Authorization: Token token="532a154c72efe29f448f4d4747268c918c75b1894261011105eb6060298babe4"' $@ ; echo

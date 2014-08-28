@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+#
+# Modified from https://gist.github.com/lmarburger/7308306
+#
+
+abort "Usage: #{File.basename(__FILE__)} name" if ARGV.empty?
+
+input = ARGV[0]
+flipped = `textflip '#{input}'`
+puts "(╯°□°）╯︵ #{flipped}"

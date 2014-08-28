@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby -w -p -i -l
+require 'english'
+
+$LAST_READ_LINE.sub!(/Scenario:\s*(\w)/){ "Scenario: #{$1.upcase}" }

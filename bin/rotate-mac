@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+NUMS = ('0'..'9').to_a
+ALPHAS = ('a'..'f').to_a
+RANGE = NUMS + ALPHAS
+def rand_mac
+  6.times.map{ RANGE.sample + RANGE.sample }.join(':')
+end
+
+#def `(cmd)
+#  p cmd
+#end
+interface = 'en0'
+#`/sbin/ifconfig #{interface} down` rescue nil
+`/sbin/ifconfig #{interface} up`
+`/usr/sbin/airport -z`
+`/sbin/ifconfig #{interface} lladdr #{rand_mac}`
+
+
+#xyz = '/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z'

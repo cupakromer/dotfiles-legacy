@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+# Prompt are you sure? Or accept a -f flag
+
+`git reset HEAD --hard`
+`git clean -f -d` # remove untracked files
+#git clean -f -x -d # CAUTION: as above but removes ignored files like config.
