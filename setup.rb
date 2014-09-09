@@ -10,6 +10,7 @@ brews = %w{
   tmux
   readline
   mongodb
+  chruby
 }
 `brew update`
 
@@ -23,13 +24,8 @@ brews = %w{
 # Oh-My-Zsh
 `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
 
-# Install RVM
-
 # Prevent docs from being generated
 `ln -s #{current_dir}/.gemrc ~/.gemrc`
-
-# Add default gems to RVM
-
 
 # Setup config file softlinks
 `ln -s #{current_dir}/.rspec ~/.rspec`

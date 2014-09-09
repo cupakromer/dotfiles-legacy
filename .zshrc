@@ -31,7 +31,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git encode64 npm rvm)
+#plugins=(git encode64 npm)
 plugins=(git encode64 npm)
 
 # Customize to your needs...
@@ -52,7 +52,7 @@ source /Users/aaron/.travis/travis.sh
 # Gradle Setup
 GRADLE_HOME="$HOME/.gradle/releases/gradle-1.9"
 
-PATH=$PATH:$GRADLE_HOME/bin:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$GRADLE_HOME/bin
 
 
 # add these to a zsh specific alias file and source it

@@ -1,5 +1,5 @@
 # Common Command Aliases
-alias update-system="brew update && brew upgrade && ~/bin/infect && rvm get stable"
+alias update-system="brew update && brew upgrade && ~/bin/infect"
 
 # Listing Files
 alias ls="ls -aFG"
