@@ -1,3 +1,8 @@
+if [[ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]]; then
+  source /usr/local/opt/chruby/share/chruby/chruby.sh
+  source /usr/local/opt/chruby/share/chruby/auto.sh
+fi
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
