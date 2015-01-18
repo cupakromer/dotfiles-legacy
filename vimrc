@@ -53,13 +53,16 @@ filetype indent plugin on
 
 syntax on
 
-"set spell
-"set ruler
+set ruler
 set number
 set clipboard=unnamed
 
 " Set encoding
 set encoding=utf-8
+
+" Set Spell Check
+au BufRead,BufNewFile *.md,*.markdown setlocal spell
+au FileType gitcommit setlocal spell
 
 " Better command-line completion
 set complete=.,b,u,]
