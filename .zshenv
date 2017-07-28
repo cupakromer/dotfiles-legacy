@@ -55,7 +55,7 @@ ignite() {
       fi
     fi
 
-    rm -rf $i
+    rm -rfP $i
     echo "🔥  $i: $stats, $human_size"
   done
 }

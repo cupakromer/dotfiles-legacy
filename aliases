@@ -54,3 +54,6 @@ alias rkma="rake db:migrate && rake db:migrate RAILS_ENV=test"
 
 # ToDo App
 alias td="todo.sh -d $HOME/.todo/todo.cfg"
+
+# Always Attempt Semi-Secure Removal
+alias rm="rm -P"
