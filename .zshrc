@@ -1,12 +1,5 @@
-if [[ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]]; then
-  RUBIES_DIRS=(
-    "$PREFIX/opt/rubies"
-    "$HOME/.rubies"
-  )
-  source /usr/local/opt/chruby/share/chruby/chruby.sh
-  source /usr/local/opt/chruby/share/chruby/auto.sh
-  source $HOME/.chruby/install.sh
-  chruby_reload
+if [[ -f $HOME/.chruby/load.sh ]]; then
+  source $HOME/.chruby/load.sh
 fi
 
 # Path to your oh-my-zsh configuration.

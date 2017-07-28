@@ -21,6 +21,7 @@ function chruby-install()
         return 1
       fi
 
+      unset GEM_HOME
       ruby-install $@
       chruby_reload
       ;;
