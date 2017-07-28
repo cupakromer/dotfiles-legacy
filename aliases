@@ -1,5 +1,5 @@
 # Common Command Aliases
-alias update-system="brew update && brew upgrade && ~/bin/infect"
+alias update-system="(~/bin/infect && brew update && brew upgrade && brew doctor) | tee -a ~/.sysupdate.$(date '+%Y%m%d%H%M%S')"
 
 # Listing Files
 alias ls="ls -aFG"
