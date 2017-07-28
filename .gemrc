@@ -1,2 +1,2 @@
-install: --env-shebang --no-rdoc --no-ri
-update: --env-shebang --no-rdoc --no-ri
+install: --env-shebang --no-rdoc
+update: --env-shebang --no-rdoc
