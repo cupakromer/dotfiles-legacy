@@ -41,6 +41,13 @@ call pathogen#infect()
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " Configure syntastic
+function! RubocopExec()
+  if filereadable("bin/rubocop")
+    return "bin/rubocop"
+  endif
+  return "rubocop"
+endfunction
+let g:syntastic_ruby_rubocop_exec = RubocopExec()
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " Global settings for all files
@@ -131,6 +138,11 @@ vnoremap Q gq
 " j and k move by screen lines
 nnoremap j gj
 nnoremap k gk
+
+""""""""""""""""""""""
+" RSpec Binstub      "
+""""""""""""""""""""""
+let g:rspec_command = '!bin/rspec {spec}'
 
 """"""""""""""""""""""
 " RSpec Dispatch     "
